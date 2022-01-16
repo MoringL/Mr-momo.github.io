@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>2021-1024随笔</title>
+    <url>/2021/2021-1024%E9%9A%8F%E7%AC%94/</url>
+    <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/Mr-momo/picBed00@main/image/202110242221512.jpeg" alt="[RE4wEaN (1920×1080) (akamaized.net)](https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4wEaN?ver=9f5b)"></p>
+<span id="more"></span>
+
+<p>一年中又到了10月24日，是程序员的节日。也就在今天，我依托github和hexo搭起了这个博客，临近今日的尾声，想随手写点什么。</p>
+<p>我在学习上兜兜转转，反反复复，实在懊恼，总感觉进度缓慢。今年考研的日子所剩不多，随着最后的“审判日”临近，我也越发的焦虑，质疑自己现在到底在干些什么。都这个时间点了，还在想什么，干就完事。加油！！！少年！！！冲呀！！！</p>
+]]></content>
+      <tags>
+        <tag>随笔</tag>
+        <tag>1024</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2021-1101随笔</title>
+    <url>/2021/2021-1101%E9%9A%8F%E7%AC%94/</url>
+    <content><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/Mr-momo/picBed00@main/image/202111012233270.jpg" alt="LittleBirds_ZH-CN3637653515_1920x1080"></p>
+<span id="more"></span>
+
+<p>记录一次网络诈骗。啊这，不是我被诈骗了，是家里人被骗了，随手记录一下。怎么说呢，事已至此，吃一堑长一智，吸取教训。</p>
+<p>近年来我感觉国家反诈骗的力度逐渐加大，特别是最近经常能听到的宣传语“你有没有下载<strong>国家反诈中心</strong>APP”，就在这样的前提下，诈骗团伙还是如此猖獗，这真是令我感到十分愤慨。以往觉得诈骗案件离自己很遥远，但这次就发生在身边（吐血）。</p>
+<p>经过是这样的（我也不大清楚具体的细节，大体如下），家里人（小A）在pdd上买了东西，但是一直没有到货，于是就申请退货，貌似正常的流程，但就在这里即将发生意外，在申请退货的同天，一名男子（x某）电话询问小A是否要退货，并要求加微信好友说要退钱，又因为小A微信绑定的卡里没钱，于是x某在支付宝发送了链接并要求支付款项（小A支付宝绑的卡里有钱），或许没绕过来，小A就这样支付了过去，x某还要求小A使用微粒贷，这样才能把支付宝的钱一并退回，这时小A才意识到了不对劲，而且后面就联系不上x某了。随后就报警处理了，<strong>3000元及以上是去公安局刑侦立案，3000元以下是治安案件去派出所</strong>，暂无后续了。</p>
+<p>从上帝视角看，从旁观者的角度下来，这诈骗套路实在简单，我猜想小A是禁不住他们一步步的指令，一次次的催促，环环相套，大脑就和绕进了脑筋急转弯一样，身处其中，一下没想明白就中招了。就这个事情而言，我们要知道了，平台退货退钱就走平台，和店家沟通也要在平台，都依赖一个可靠的平台，这样更加有保障些，不敢说自身利益百分百不被损害，百分之五十以上肯定是有的（数学上百分之五十以上就是可行^_^），至少不会出现诈骗的情况吧。</p>
+<p>我个人来看诈骗，诈骗什么呢，无非就是为了钱（像什么游戏账号也是钱啊 捂脸），但请大家记住，无论之前怎么被诈骗团伙诱导，无论他们的伎俩多么高超，最后交钱输密码的时候一定要冷静，要和泼了盆冷水一样，让大脑冷静下来，钱一转就是别人的了（我这穷人，转钱的时候老冷静了），你要想想看对面的信息是否可靠。啊这，就到这吧，我罗里吧嗦写了好多，反正最后一下转钱的时候，要冷静，不清楚的话就多找几个人问问，再感觉不行就直接打<strong>110</strong>，要相信警察（警察们平时都很辛苦的，希望大家还是要提高自己的防诈骗意识呀）。</p>
+<p>最后说一句 <strong>你有没有下载 “国家反诈中心”APP?</strong> </p>
+]]></content>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>github删除commit历史记录（回滚仓库版本）</title>
+    <url>/2021/github%E5%88%A0%E9%99%A4commit%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95%EF%BC%88%E5%9B%9E%E6%BB%9A%E4%BB%93%E5%BA%93%E7%89%88%E6%9C%AC%EF%BC%89/</url>
+    <content><![CDATA[<p><strong>问题</strong>：误传了一些文件到github上，删除文件后，在github的历史提交记录中仍能找到那些（已删除）文件。</p>
+<p><strong>目标</strong>：删除commit记录（彻底删除不必要文件）。</p>
+<p><strong>方案</strong>：</p>
+<p>先将仓库clone到本地，并使用<code>git log</code>查看commit记录，获取想要返回到的版本所对应的HASH值（那串十分长的唯一标识）。</p>
+<p>使用如下指令，将本地仓库重置（回滚）到相应版本。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git reset --hard HASH值</span><br></pre></td></tr></table></figure>
+
+<p>接下来要将本地仓库推送到github仓库，使用如下指令。<code>--force</code>参数，使得本地仓库<strong>强制</strong>推送到远程仓库（覆盖远程仓库）。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push origin HEAD --force</span><br></pre></td></tr></table></figure>
+
+<p>问题解决完毕。</p>
+]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java笔记</title>
+    <url>/2021/Java%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<img src="https://cdn.jsdelivr.net/gh/Mr-momo/picBed00@main/image/202201062159887.png" style="zoom:200%;" />
+
+<span id="more"></span>
+
+<h1 id="一、Java概述"><a href="#一、Java概述" class="headerlink" title="一、Java概述"></a>一、Java概述</h1><h2 id="编程语言迭代版本"><a href="#编程语言迭代版本" class="headerlink" title="编程语言迭代版本"></a>编程语言迭代版本</h2><ul>
+<li>机器语言</li>
+<li>汇编语言</li>
+<li>高级语言</li>
+</ul>
+<h2 id="Java语言版本迭代重要节点"><a href="#Java语言版本迭代重要节点" class="headerlink" title="Java语言版本迭代重要节点"></a>Java语言版本迭代重要节点</h2><p>sun –&gt; Oracle</p>
+<p>** 2004 jdk1.5 更名为 jdk5.0</p>
+<p>** 2014 jdk8.0</p>
+<h2 id="Java注释"><a href="#Java注释" class="headerlink" title="Java注释"></a>Java注释</h2><ul>
+<li>单行注释</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>多行注释</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/*</span><br><span class="line">多行注释，不会被javadoc命令解析</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>文档注释（可配合javadoc命令）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line">文档注释</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、变量、标识符、保留字、变量"><a href="#二、变量、标识符、保留字、变量" class="headerlink" title="二、变量、标识符、保留字、变量"></a>二、变量、标识符、保留字、变量</h1><h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><p>所有的关键字都是小写</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mr-momo/picBed00@main/image/202112300036605.png" alt="image-20211230003607430"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mr-momo/picBed00@main/image/202112300036018.png" alt="image-20211230003628846"></p>
+<h2 id="保留字"><a href="#保留字" class="headerlink" title="保留字"></a>保留字</h2><p>Java现有版本暂未使用的，但后续版本可能作为关键字使用，自己应当避免使用。</p>
+<p>如goto、const</p>
+<h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><ul>
+<li><p>可含有26个字母、下划线、美元符号$</p>
+</li>
+<li><p>大小写区分</p>
+</li>
+<li><p>不可以使用关键字和保留字</p>
+</li>
+<li><p>不能以数字作为开头（阿里巴巴Java开发手册中还强制不允许以下划线和美元符号开头结尾）</p>
+</li>
+<li><p>不包含空格</p>
+</li>
+</ul>
+<h2 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h2><p><a href="https://github.com/alibaba/p3c">阿里巴巴Java开发手册 https://github.com/alibaba/p3c</a></p>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p><img src="https://cdn.jsdelivr.net/gh/Mr-momo/picBed00@main/image/202112300053580.png" alt="image-20211230005348471"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mr-momo/picBed00@main/image/202112300054205.png" alt="image-20211230005424097"></p>
+]]></content>
+      <categories>
+        <category>Java路线</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <tags>
+        <tag>Hello</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用DOS命令</title>
+    <url>/2021/%E5%B8%B8%E7%94%A8DOS%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<p>常用DOS命令</p>
+<ul>
+<li>dir 列出当前目录下的文件和文件夹</li>
+<li>md 创建目录</li>
+<li>rd 删除目录</li>
+<li>cd 进入指定目录</li>
+<li>cd.. 退回到上级目录</li>
+<li>cd\ 退回到根目录</li>
+<li>del 删除文件</li>
+<li>exit 推出DOS窗口</li>
+<li>exco 向文件输入内容（创建文件 eg: exco txtTest&gt;test.txt）</li>
+</ul>
+<p>常用快捷键</p>
+<ul>
+<li>上下方向键 阅读当前窗口历史操作指令</li>
+<li>左右方向键 移动光标</li>
+<li>Delete和BackSpace 删除字符</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>DOS</tag>
+      </tags>
+  </entry>
+</search>
