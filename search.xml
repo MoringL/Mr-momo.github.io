@@ -82,11 +82,32 @@
 <h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p><img src="https://cdn.jsdelivr.net/gh/Mr-momo/picBed00@main/image/202112300053580.png" alt="image-20211230005348471"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/Mr-momo/picBed00@main/image/202112300054205.png" alt="image-20211230005424097"></p>
 ]]></content>
-      <categories>
-        <category>Java路线</category>
-      </categories>
       <tags>
         <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>String.indexOf()和String.lastIndexOf()</title>
+    <url>/2022/String.indexOf%E5%92%8CString.lastIndexOf/</url>
+    <content><![CDATA[<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 返回指定字符串在此字符串中第一次出现的索引，不给定fromIndex参数时，源码默认会为fromIndex赋值为0</span></span><br><span class="line">String.indexOf(String str)</span><br><span class="line"><span class="comment">// 返回指定字符串在此字符串中第一次出现的索引,从指定索引开始查找</span></span><br><span class="line">String.indexOf(String str, <span class="keyword">int</span> fromIndex)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 返回指定字符串在此字符串中最右边出现的索引，不给定fromIndex参数时，源码默认会为fromIndex赋值为str的长度</span></span><br><span class="line">String.lastIndexOf(String str)</span><br><span class="line"><span class="comment">// 返回指定字符串在此字符串中最右边出现的索引,从指定索引反向查找。    </span></span><br><span class="line">String.lastIndexOf(String str, <span class="keyword">int</span> fromIndex)</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>疑惑：我对lastIndexOf()从指定索引处反向查找表示疑惑，如下实例</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String s1 = <span class="string">&quot;9876543210123456789;</span></span><br><span class="line"><span class="string">System.out.println(s4.lastIndexOf(&quot;</span><span class="number">123</span><span class="string">&quot;));  //10</span></span><br><span class="line"><span class="string">/* 我想从第十位开始向前查找，应该是无法找到匹配的“123”子串了，返回-1（我想错了）</span></span><br><span class="line"><span class="string">   实际情况，依旧返回了10。</span></span><br><span class="line"><span class="string"> */</span></span><br><span class="line"><span class="string">System.out.println(s1.lastIndexOf(&quot;</span><span class="number">123</span><span class="string">&quot;, 10));  </span></span><br></pre></td></tr></table></figure>
+
+<p>分析源码：</p>
+<p>如图：部分源码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Mr-momo/picBed00@main/image/202201201312229.png" alt="image-20220120131215816"></p>
+<p>lastIndexOf() 源码中在指定的索引上加target长度后的位置开始反向查找</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 子串最后一个下标</span></span><br><span class="line"><span class="keyword">int</span> strLastIndex = targetOffset + targetCount - <span class="number">1</span>;  </span><br><span class="line"><span class="comment">// 子串中最后一个char字符</span></span><br><span class="line"><span class="keyword">char</span> strLastChar = target[strLastIndex];  </span><br><span class="line"><span class="comment">// 被查字符串(sourceStr)需要匹配的最小索引下标，小于该值时，就没有必要继续查找了</span></span><br><span class="line"><span class="keyword">int</span> min = sourceOffset + targetCount - <span class="number">1</span>;  </span><br><span class="line"><span class="comment">// 被查字符串(sourceStr)从第i（i = formIndex + targetCount - 1，sourceoffset这里是0）个索引开始比较子串 </span></span><br><span class="line"><span class="keyword">int</span> i = min + fromIndex;  </span><br><span class="line"></span><br><span class="line">eg: </span><br><span class="line">String s1 = <span class="string">&quot;9876543210123456789;</span></span><br><span class="line"><span class="string">// fromIndex = 10;</span></span><br><span class="line"><span class="string">s1.lastIndexOf(&quot;</span><span class="number">123</span><span class="string">&quot;, 10);</span></span><br><span class="line"><span class="string">// 从索引10开始找 &quot;</span><span class="number">9876543210</span> <span class="string">&#x27;1&#x27;</span> <span class="number">23456789</span><span class="string">&quot;;</span></span><br><span class="line"><span class="string">// 其实会从索引10 + 2开始往前找 &quot;</span><span class="number">987654321012</span> <span class="string">&#x27;3&#x27;</span> <span class="number">456789</span><span class="string">&quot;;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>java</tag>
+        <tag>String</tag>
       </tags>
   </entry>
   <entry>
@@ -106,6 +127,29 @@
 ]]></content>
       <tags>
         <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <tags>
+        <tag>Hello</tag>
       </tags>
   </entry>
   <entry>
@@ -132,29 +176,6 @@
 ]]></content>
       <tags>
         <tag>DOS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2021/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <tags>
-        <tag>Hello</tag>
       </tags>
   </entry>
 </search>
